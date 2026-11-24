@@ -7,6 +7,25 @@ Two pieces of code reproduce every number and figure of the revised manuscript:
 
 Each patient is counted once (one primary-tumor sample, type 01 or 03 for LAML). Every preprocessing and selection step is fitted inside each training fold, on gene expression only. Tumor type and clinical variables are added after PCA.
 
+## Repository access and local analysis
+
+Readers can clone the public repository over HTTPS without signing in:
+
+    git clone https://github.com/lujainalhusan/pancancer-survival-revision.git
+
+Maintainers authenticate when pushing changes. Git connects to GitHub over HTTPS,
+obtains a credential from a configured credential helper or prompts for one, and
+sends it to GitHub. GitHub checks the credential and repository write permissions
+before accepting the push. Use GitHub CLI browser sign-in with a credential
+helper, or enter a personal access token in Git's password prompt. Keep tokens
+out of the remote URL, repository files, and analysis commands. See
+[GitHub's HTTPS authentication documentation](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github#https).
+
+Download the two UCSC Xena inputs separately. The script reads their local paths
+from `--expr` and `--clin`, and the notebook locates them through
+`PANCAN_DATA_DIR`. Both use the same cohort-building code and run without GitHub
+credentials or an authentication step inside the analysis.
+
 ## Install
     pip install numpy pandas scipy scikit-learn lifelines scikit-survival statsmodels matplotlib nbconvert
     # optional supplementary cells: pip install gseapy shap
@@ -22,6 +41,7 @@ Versions used: Python 3.9.6, NumPy 2.0.2, pandas 2.3.3, scikit-learn 1.5.2, life
     # quick check: --repeats 1 --sens-repeats 1 --surv-repeats 1 --n-pc 30
     # optional genome-wide adjusted gene screen (slow): --genomewide
 
+    python build_revised_notebook.py
     PANCAN_DATA_DIR=/path/to/data PANCAN_CODE_DIR=/path/to/this/folder \
       jupyter nbconvert --to notebook --execute PanCancer_revised_notebook.ipynb
 

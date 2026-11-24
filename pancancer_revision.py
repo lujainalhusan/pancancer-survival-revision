@@ -8,7 +8,8 @@ Reviewer 2 (R2.1 to R2.10). Every feature level step (imputation, variance
 filter, scaling, PCA, L1 selection and the clinical encoders) is fitted inside
 each training fold only and then applied unchanged to the matching test fold.
 
-Inputs (command line arguments expr and clin)
+Inputs (local files supplied through --expr and --clin)
+  No GitHub credentials are needed to run the analysis.
   expr    UCSC Xena TCGA PANCAN expression matrix, genes by samples, tab
           separated, optionally gzipped. The first column holds gene names.
           The matrix used in the manuscript is the PanCanAtlas EB++ batch
@@ -865,9 +866,9 @@ def gene_adjusted(Xdf, C, T, E, types, genes, out, tr_idx, te_idx, genomewide=Fa
 # Main
 
 def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--expr", required=True)
-    ap.add_argument("--clin", required=True)
+    ap = argparse.ArgumentParser(description="Run the survival analysis on local input files.")
+    ap.add_argument("--expr", required=True, help="local UCSC Xena expression matrix")
+    ap.add_argument("--clin", required=True, help="local survival TSV or clinical workbook")
     ap.add_argument("--out", default="results")
     ap.add_argument("--repeats", type=int, default=20, help="repeats of five fold CV, main analysis")
     ap.add_argument("--sens-repeats", type=int, default=3, help="repeats for the outcome sensitivity analysis")
