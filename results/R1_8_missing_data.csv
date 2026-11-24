@@ -1,0 +1,7 @@
+variable,n_missing,handling,n_patients
+age at diagnosis,23,training fold median imputation,9804
+sex,0,own category,9804
+"stage (pathologic, clinical used when missing)",1927,own category (unknown stage),9804
+pathologic stage only,3383,clinical stage substituted,9804
+year of diagnosis,125,training fold median imputation,9804
+expression values (cells),3809490,training fold gene mean imputation,9804

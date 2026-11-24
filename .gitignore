@@ -1,0 +1,8 @@
+# Data files are public (UCSC Xena) and too large for GitHub
+*.tsv
+*.tsv.gz
+*.csv.gz
+tcga_expression_transposed.csv
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store

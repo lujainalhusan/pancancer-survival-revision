@@ -1,0 +1,17 @@
+step,n
+Clinical records in source file (sample level rows),12591
+Unique patients in clinical table,11081
+Patients with complete OS (status and time),11015
+Expression samples (all columns of the matrix),11069
+Removed: solid tissue normal (11),737
+Removed: metastatic (06),395
+Removed: recurrent tumor (02),46
+Removed: additional new primary (05),11
+Removed: additional metastatic (07),1
+"Primary tumor samples (01, or 03 for LAML)",9879
+Removed: repeated primary tumor aliquots of the same patient (first aliquot in barcode order kept),4
+Unique patients with a primary tumor expression profile,9875
+Patients with both expression and complete OS,9804
+Labelled with the global rule (modelling cohort),5307
+  of which high risk,1415
+Excluded: censored at or before the 75th percentile,4497

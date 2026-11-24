@@ -1,0 +1,4 @@
+target,metric,value,chance,n_classes,n_test
+tumor type,accuracy,0.940677966101695,0.11487758945386065,33,1062
+sex,AUC,0.9675907473309608,0.5,2,1062
+contributing site,accuracy,0.5637342908438061,0.05385996409335727,58,557

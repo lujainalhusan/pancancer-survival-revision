@@ -1,0 +1,8 @@
+python 3.9.6 (macOS-26.6.2-arm64-arm-64bit)
+numpy 2.0.2
+pandas 2.3.3
+scipy 1.13.1
+sklearn 1.5.2
+lifelines 0.30.0
+sksurv 0.23.1
+{"expr": "/Users/lujainalhusan/Downloads/Project/tcga_gene_expression.tsv", "clin": "/Users/lujainalhusan/Downloads/Project/tcga_survival.tsv", "out": "results", "repeats": 20, "sens_repeats": 3, "surv_repeats": 2, "n_pc": 150, "skip_survival": false, "skip_sensitivity": false, "genomewide": false}

@@ -1,0 +1,639 @@
+{
+  "thresholds_days": [
+    549.0,
+    1097.0
+  ],
+  "clinical_table": {
+    "patients_complete_OS": 11015,
+    "high": 1787,
+    "low": 4509,
+    "low_died": 1790,
+    "low_censored": 2719,
+    "excluded": 4719
+  },
+  "expression_cohort": {
+    "patients": 9804,
+    "labelled": 5307,
+    "excluded": 4497,
+    "high": 1415
+  },
+  "high_risk_frac": 0.2666289805916714,
+  "n_types_modelling": 33,
+  "single_split": {
+    "n_train": 4245,
+    "n_test": 1062,
+    "n_selected_components": 113,
+    "n_genes_after_variance_filter": 14984,
+    "pca_cumvar_pct": {
+      "10": 44.5,
+      "50": 66.1,
+      "100": 72.2,
+      "150": 75.5
+    }
+  },
+  "hotelling": {
+    "T2": 1783.1535201057932,
+    "F": 11.470234128860268,
+    "df1": 150,
+    "df2": 4094,
+    "p": 1.2396775656225665e-213,
+    "pillai": 0.2959024382894395
+  },
+  "cv_selected_components": {
+    "median": 105.0,
+    "min": 93,
+    "max": 120,
+    "median_genes": 14955.0
+  }
+}
+
+== R1_1_encoding_recovery.csv
+           target   metric  value  chance  n_classes  n_test
+       tumor type accuracy 0.9407  0.1149         33    1062
+              sex      AUC 0.9676  0.5000          2    1062
+contributing site accuracy 0.5637  0.0539         58     557
+
+== R1_4_per_type_accounting.csv
+type  n_cohort  n_test  n_test_high  n_test_low  included                              reason_excluded  auc_transcriptome_only  auc_transcriptome_only_lo  auc_transcriptome_only_hi  auc_clinical_only  auc_clinical_only_lo  auc_clinical_only_hi  auc_combined  auc_combined_lo  auc_combined_hi
+ ACC        61      11            0          11     False                  fewer than 20 test patients                     NaN                        NaN                        NaN                NaN                   NaN                   NaN           NaN              NaN              NaN
+BLCA       248      50           22          28      True                                          NaN                  0.5893                     0.4237                     0.7370             0.7492                0.6136                0.8750        0.7289           0.5795           0.8604
+BRCA       507     122            9         113      True                                          NaN                  0.7414                     0.5585                     0.8987             0.8201                0.7360                0.9007        0.8584           0.7414           0.9538
+CESC       146      35           10          25      True                                          NaN                  0.6600                     0.4600                     0.8360             0.5560                0.3160                0.7760        0.6360           0.4120           0.8280
+CHOL        26       6            2           4     False                  fewer than 20 test patients                     NaN                        NaN                        NaN                NaN                   NaN                   NaN           NaN              NaN              NaN
+COAD       184      30           12          18      True                                          NaN                  0.5926                     0.3704                     0.8194             0.8194                0.6528                0.9537        0.7731           0.5833           0.9352
+DLBC        24       3            2           1     False                  fewer than 20 test patients                     NaN                        NaN                        NaN                NaN                   NaN                   NaN           NaN              NaN              NaN
+ESCA        86      13            7           6     False                  fewer than 20 test patients                     NaN                        NaN                        NaN                NaN                   NaN                   NaN           NaN              NaN              NaN
+ GBM       121      21           10          11      True                                          NaN                  0.4455                     0.1818                     0.7091             0.6455                0.3544                0.8727        0.4545           0.1909           0.7182
+HNSC       327      61           30          31      True                                          NaN                  0.5925                     0.4473                     0.7323             0.5876                0.4451                0.7301        0.6473           0.5043           0.7817
+KICH        53      13            2          11     False                  fewer than 20 test patients                     NaN                        NaN                        NaN                NaN                   NaN                   NaN           NaN              NaN              NaN
+KIRC       404      85           21          64      True                                          NaN                  0.6868                     0.5491                     0.8118             0.7812                0.6559                0.8903        0.8021           0.6905           0.9003
+KIRP       127      19            1          18     False                  fewer than 20 test patients                     NaN                        NaN                        NaN                NaN                   NaN                   NaN           NaN              NaN              NaN
+LAML       127      30           18          12      True                                          NaN                  0.6157                     0.3750                     0.8519             0.6181                0.4051                0.8264        0.6852           0.4722           0.8751
+ LGG       232      42            5          37      True                                          NaN                  0.8270                     0.6432                     0.9622             0.8919                0.7784                0.9730        0.8649           0.7405           0.9568
+LIHC       195      33           12          21      True                                          NaN                  0.8135                     0.6230                     0.9722             0.6587                0.4484                0.8393        0.8413           0.6706           0.9722
+LUAD       269      53           19          34      True                                          NaN                  0.6347                     0.4768                     0.7817             0.5658                0.3986                0.7283        0.6594           0.4892           0.8127
+LUSC       305      58           23          35      True                                          NaN                  0.6671                     0.5168                     0.7988             0.6093                0.4547                0.7535        0.6199           0.4633           0.7627
+MESO        80      22           14           8      True                                          NaN                  0.8661                     0.6786                     1.0000             0.5000                0.2411                0.7502        0.7589           0.5357           0.9375
+  OV       224      42           10          32      True                                          NaN                  0.5156                     0.3188                     0.7094             0.7344                0.5453                0.8938        0.6969           0.4875           0.9000
+PAAD       108      18           10           8     False                  fewer than 20 test patients                     NaN                        NaN                        NaN                NaN                   NaN                   NaN           NaN              NaN              NaN
+PCPG        65      12            0          12     False                  fewer than 20 test patients                     NaN                        NaN                        NaN                NaN                   NaN                   NaN           NaN              NaN              NaN
+PRAD       210      47            0          47     False          only one risk group in the test set                     NaN                        NaN                        NaN                NaN                   NaN                   NaN           NaN              NaN              NaN
+READ        56      11            1          10     False                  fewer than 20 test patients                     NaN                        NaN                        NaN                NaN                   NaN                   NaN           NaN              NaN              NaN
+SARC       176      32            5          27      True                                          NaN                  0.7852                     0.5407                     0.9778             0.8074                0.6296                0.9556        0.8222           0.5183           1.0000
+SKCM        32       7            2           5     False                  fewer than 20 test patients                     NaN                        NaN                        NaN                NaN                   NaN                   NaN           NaN              NaN              NaN
+STAD       197      51           24          27      True                                          NaN                  0.5880                     0.4244                     0.7423             0.6651                0.4985                0.8110        0.6867           0.5339           0.8318
+TGCT        78      14            1          13     False                  fewer than 20 test patients                     NaN                        NaN                        NaN                NaN                   NaN                   NaN           NaN              NaN              NaN
+THCA       210      45            1          44     False fewer than 3 test patients in one risk group                     NaN                        NaN                        NaN                NaN                   NaN                   NaN           NaN              NaN              NaN
+THYM        69      16            0          16     False                  fewer than 20 test patients                     NaN                        NaN                        NaN                NaN                   NaN                   NaN           NaN              NaN              NaN
+UCEC       275      44            4          40      True                                          NaN                  0.6875                     0.2375                     0.9688             0.6562                0.4188                0.8750        0.5938           0.2373           0.9312
+ UCS        42       9            4           5     False                  fewer than 20 test patients                     NaN                        NaN                        NaN                NaN                   NaN                   NaN           NaN              NaN              NaN
+ UVM        43       7            2           5     False                  fewer than 20 test patients                     NaN                        NaN                        NaN                NaN                   NaN                   NaN           NaN              NaN              NaN
+
+== R1_4_per_type_auc_cv_summary.csv
+       feature_set type  n_splits  mean_n_test  auc_mean  auc_lo  auc_hi
+     clinical_only  ACC        20         13.0    0.7300  0.5650  0.9175
+     clinical_only BLCA       100         49.6    0.6686  0.5449  0.7765
+     clinical_only BRCA       100        101.4    0.8770  0.7873  0.9784
+     clinical_only CESC       100         29.2    0.6632  0.3826  0.9080
+     clinical_only COAD       100         36.8    0.7164  0.5831  0.8530
+     clinical_only ESCA       100         17.2    0.6543  0.4068  0.8733
+     clinical_only  GBM       100         24.2    0.6133  0.3895  0.8080
+     clinical_only HNSC       100         65.4    0.5731  0.4550  0.6976
+     clinical_only KIRC       100         80.8    0.8173  0.6867  0.9230
+     clinical_only KIRP       100         25.4    0.8347  0.6066  1.0000
+     clinical_only LAML       100         25.4    0.7028  0.5066  0.8624
+     clinical_only  LGG       100         46.4    0.8210  0.6789  0.9510
+     clinical_only LIHC       100         39.0    0.5754  0.4297  0.7349
+     clinical_only LUAD       100         53.8    0.6926  0.5836  0.8232
+     clinical_only LUSC       100         61.0    0.5671  0.4150  0.7052
+     clinical_only MESO       100         16.0    0.4801  0.2381  0.7166
+     clinical_only   OV       100         44.8    0.7017  0.5546  0.8446
+     clinical_only PAAD       100         21.6    0.6190  0.3743  0.8280
+     clinical_only SARC       100         35.2    0.6032  0.4027  0.8025
+     clinical_only STAD       100         39.4    0.5791  0.4051  0.7481
+     clinical_only THCA         2         44.0    0.9512  0.9358  0.9667
+     clinical_only UCEC       100         55.0    0.7773  0.6071  0.9441
+          combined  ACC        20         13.0    0.9033  0.7667  1.0000
+          combined BLCA       100         49.6    0.6842  0.5632  0.8044
+          combined BRCA       100        101.4    0.8523  0.6762  0.9706
+          combined CESC       100         29.2    0.7465  0.5504  0.9241
+          combined COAD       100         36.8    0.7264  0.5816  0.8652
+          combined ESCA       100         17.2    0.5741  0.3335  0.7932
+          combined  GBM       100         24.2    0.5760  0.3092  0.8111
+          combined HNSC       100         65.4    0.6646  0.5473  0.7838
+          combined KIRC       100         80.8    0.8172  0.6994  0.9282
+          combined KIRP       100         25.4    0.8972  0.7094  1.0000
+          combined LAML       100         25.4    0.6966  0.5168  0.8743
+          combined  LGG       100         46.4    0.9042  0.7988  0.9690
+          combined LIHC       100         39.0    0.7180  0.5842  0.8296
+          combined LUAD       100         53.8    0.6604  0.5194  0.7666
+          combined LUSC       100         61.0    0.5976  0.4490  0.7211
+          combined MESO       100         16.0    0.7576  0.4708  0.9062
+          combined   OV       100         44.8    0.6690  0.4912  0.8907
+          combined PAAD       100         21.6    0.6365  0.4072  0.8393
+          combined SARC       100         35.2    0.6886  0.5205  0.8450
+          combined STAD       100         39.4    0.6226  0.4484  0.7617
+          combined THCA         2         44.0    0.8902  0.8864  0.8941
+          combined UCEC       100         55.0    0.7980  0.6048  0.9440
+transcriptome_only  ACC        20         13.0    0.8933  0.7333  1.0000
+transcriptome_only BLCA       100         49.6    0.6137  0.4172  0.7639
+transcriptome_only BRCA       100        101.4    0.7126  0.5154  0.9015
+transcriptome_only CESC       100         29.2    0.7191  0.5200  0.8877
+transcriptome_only COAD       100         36.8    0.6466  0.4667  0.8184
+transcriptome_only ESCA       100         17.2    0.4681  0.1850  0.6733
+transcriptome_only  GBM       100         24.2    0.5703  0.3103  0.8225
+transcriptome_only HNSC       100         65.4    0.6392  0.5239  0.7746
+transcriptome_only KIRC       100         80.8    0.7008  0.5517  0.8255
+transcriptome_only KIRP       100         25.4    0.8651  0.6800  0.9928
+transcriptome_only LAML       100         25.4    0.6285  0.4730  0.7809
+transcriptome_only  LGG       100         46.4    0.8702  0.7331  0.9606
+transcriptome_only LIHC       100         39.0    0.7339  0.5788  0.8699
+transcriptome_only LUAD       100         53.8    0.6167  0.4611  0.7576
+transcriptome_only LUSC       100         61.0    0.5922  0.4294  0.7157
+transcriptome_only MESO       100         16.0    0.8203  0.5825  0.9844
+transcriptome_only   OV       100         44.8    0.5961  0.3593  0.8243
+transcriptome_only PAAD       100         21.6    0.6133  0.4166  0.8538
+transcriptome_only SARC       100         35.2    0.6783  0.5158  0.8404
+transcriptome_only STAD       100         39.4    0.5808  0.3965  0.7586
+transcriptome_only THCA         2         44.0    0.6789  0.6750  0.6827
+transcriptome_only UCEC       100         55.0    0.7208  0.4857  0.9055
+
+== R1_4_pooled_auc_included_types.csv
+                  feature_set  pooled_auc_all_types  ci_lo  ci_hi  n_test_all  pooled_auc_included_types  ci_lo_included  ci_hi_included  n_test_included  within_type_auc
+           transcriptome_only                0.7892 0.7597 0.8178        1062                     0.7534          0.7183          0.7875              811           0.6697
+              tumor_type_only                0.7473 0.7151 0.7767        1062                     0.7038          0.6663          0.7402              811           0.5000
+                     age_only                0.6244 0.5874 0.6613        1062                     0.6072          0.5660          0.6489              811           0.6022
+                    site_only                0.7608 0.7311 0.7897        1062                     0.7271          0.6919          0.7612              811           0.6277
+                clinical_only                0.7952 0.7657 0.8233        1062                     0.7574          0.7225          0.7892              811           0.7039
+           clinical_plus_year                0.8029 0.7735 0.8303        1062                     0.7659          0.7319          0.7983              811           0.7215
+transcriptome_plus_tumor_type                0.7892 0.7595 0.8175        1062                     0.7542          0.7186          0.7881              811           0.6736
+                     combined                0.8147 0.7860 0.8414        1062                     0.7836          0.7506          0.8149              811           0.7310
+
+== R1_8_missing_data.csv
+                                      variable  n_missing                           handling  n_patients
+                              age at diagnosis         23    training fold median imputation        9804
+                                           sex          0                       own category        9804
+stage (pathologic, clinical used when missing)       1927       own category (unknown stage)        9804
+                         pathologic stage only       3383         clinical stage substituted        9804
+                             year of diagnosis        125    training fold median imputation        9804
+                     expression values (cells)    3809490 training fold gene mean imputation        9804
+
+== R2_10_genes_adjusted_stratified_cox.csv
+    gene partition            coding     HR  ci_lo  ci_hi      p   p_BH
+   UPF3B     train            per_SD 1.1340 1.0763 1.1948 0.0000 0.0000
+   UPF3B     train above_type_median 1.1250 1.0342 1.2237 0.0061 0.0151
+   UPF3B      test            per_SD 1.1059 0.9930 1.2316 0.0671 0.1676
+   UPF3B      test above_type_median 1.2043 1.0134 1.4312 0.0348 0.0869
+   UPF3B       all            per_SD 1.1236 1.0726 1.1771 0.0000 0.0000
+   UPF3B       all above_type_median 1.1229 1.0417 1.2104 0.0025 0.0062
+  RNF212     train            per_SD 0.9727 0.9261 1.0216 0.2688 0.2688
+  RNF212     train above_type_median 0.9634 0.8861 1.0475 0.3830 0.4788
+  RNF212      test            per_SD 0.9206 0.8322 1.0183 0.1080 0.1800
+  RNF212      test above_type_median 0.8758 0.7373 1.0404 0.1311 0.2186
+  RNF212       all            per_SD 0.9584 0.9175 1.0010 0.0555 0.0555
+  RNF212       all above_type_median 0.9519 0.8833 1.0258 0.1960 0.1960
+   VSIG4     train            per_SD 1.0798 1.0273 1.1350 0.0026 0.0064
+   VSIG4     train above_type_median 1.1484 1.0559 1.2488 0.0012 0.0062
+   VSIG4      test            per_SD 1.0677 0.9649 1.1814 0.2050 0.2562
+   VSIG4      test above_type_median 1.1155 0.9399 1.3241 0.2111 0.2639
+   VSIG4       all            per_SD 1.0768 1.0301 1.1258 0.0011 0.0018
+   VSIG4       all above_type_median 1.1476 1.0647 1.2369 0.0003 0.0016
+  COBLL1     train            per_SD 0.9425 0.8920 0.9958 0.0347 0.0434
+  COBLL1     train above_type_median 0.9927 0.9129 1.0794 0.8634 0.8634
+  COBLL1      test            per_SD 0.8337 0.7490 0.9279 0.0009 0.0044
+  COBLL1      test above_type_median 0.7860 0.6609 0.9347 0.0065 0.0323
+  COBLL1       all            per_SD 0.9216 0.8783 0.9671 0.0009 0.0018
+  COBLL1       all above_type_median 0.9400 0.8723 1.0130 0.1051 0.1313
+C21orf29     train            per_SD 1.0616 1.0106 1.1152 0.0173 0.0288
+C21orf29     train above_type_median 1.0808 0.9936 1.1757 0.0704 0.1173
+C21orf29      test            per_SD 1.0346 0.9349 1.1449 0.5111 0.5111
+C21orf29      test above_type_median 1.0464 0.8811 1.2428 0.6051 0.6051
+C21orf29       all            per_SD 1.0557 1.0106 1.1028 0.0150 0.0188
+C21orf29       all above_type_median 1.0874 1.0089 1.1720 0.0283 0.0472
+
+== R2_1_9_survival_cv_summary.csv
+                           model  n_test_mean  harrell_c_mean  uno_c_mean  within_type_c_mean  mean_td_auc_mean  ibs_mean  td_auc_365d_mean  td_auc_730d_mean  td_auc_1095d_mean  td_auc_1825d_mean  n_test_lo  n_test_hi  harrell_c_lo  harrell_c_hi  uno_c_lo  uno_c_hi  within_type_c_lo  within_type_c_hi  mean_td_auc_lo  mean_td_auc_hi  ibs_lo  ibs_hi  td_auc_365d_lo  td_auc_365d_hi  td_auc_730d_lo  td_auc_730d_hi  td_auc_1095d_lo  td_auc_1095d_hi  td_auc_1825d_lo  td_auc_1825d_hi
+                        clinical       1960.8          0.7644      0.7472              0.6707            0.7918    0.1542            0.7936            0.7955             0.7899             0.7885     1960.0     1961.0        0.7578        0.7753    0.7346    0.7579            0.6483            0.7050          0.7804          0.8036  0.1500  0.1587          0.7789          0.8128          0.7810          0.8155           0.7793           0.8046           0.7693           0.8070
+     clinical_stratified_by_type       1960.8          0.6824      0.6716              0.6719            0.7066    0.2355            0.7051            0.7026             0.7051             0.7130     1960.0     1961.0        0.6672        0.7017    0.6586    0.6896            0.6493            0.7048          0.6861          0.7255  0.2256  0.2458          0.6733          0.7339          0.6753          0.7291           0.6914           0.7242           0.6902           0.7338
+                        combined       1960.8          0.7842      0.7677              0.6939            0.8146    0.1477            0.8105            0.8207             0.8169             0.8119     1960.0     1961.0        0.7795        0.7918    0.7565    0.7751            0.6789            0.7132          0.8080          0.8222  0.1447  0.1505          0.8016          0.8210          0.8098          0.8362           0.8064           0.8296           0.7979           0.8228
+     combined_stratified_by_type       1960.8          0.6911      0.6781              0.6781            0.7162    0.2359            0.7157            0.7150             0.7147             0.7193     1960.0     1961.0        0.6747        0.7127    0.6622    0.6970            0.6544            0.7091          0.6958          0.7371  0.2261  0.2462          0.6876          0.7455          0.6893          0.7475           0.7034           0.7361           0.6921           0.7395
+                   transcriptome       1960.8          0.7529      0.7358              0.6242            0.7826    0.1589            0.7742            0.7943             0.7890             0.7759     1960.0     1961.0        0.7390        0.7713    0.7254    0.7472            0.6024            0.6501          0.7692          0.7990  0.1569  0.1611          0.7574          0.8012          0.7707          0.8113           0.7699           0.8152           0.7638           0.7875
+transcriptome_stratified_by_type       1960.8          0.6065      0.5901              0.5907            0.6222    0.2319            0.6212            0.6384             0.6274             0.6052     1960.0     1961.0        0.5525        0.6338    0.5477    0.6180            0.5606            0.6155          0.5568          0.6545  0.2235  0.2409          0.5518          0.6787          0.5653          0.6677           0.5565           0.6629           0.5448           0.6456
+
+== R2_1_threshold_sensitivity.csv
+                labelling    n  excluded  high_risk_frac        feature_set  pooled_auc_mean  within_type_auc_mean  pooling_gap_mean  pooled_auc_lo  pooled_auc_hi  within_type_auc_lo  within_type_auc_hi  pooling_gap_lo  pooling_gap_hi
+        global_median_p75 5307      4497          0.2666      clinical_only           0.8176                0.6997            0.1179         0.8049         0.8272              0.6739              0.7285          0.0968          0.1351
+        global_median_p75 5307      4497          0.2666           combined           0.8356                0.7277            0.1080         0.8243         0.8479              0.7071              0.7555          0.0880          0.1207
+        global_median_p75 5307      4497          0.2666 transcriptome_only           0.8126                0.6704            0.1422         0.7994         0.8300              0.6370              0.7093          0.1185          0.1679
+      per_type_median_p75 4664      5140          0.2970      clinical_only           0.7067                0.6707            0.0360         0.6846         0.7389              0.6406              0.7093          0.0277          0.0468
+      per_type_median_p75 4664      5140          0.2970           combined           0.7478                0.7132            0.0346         0.7266         0.7722              0.6919              0.7454          0.0240          0.0433
+      per_type_median_p75 4664      5140          0.2970 transcriptome_only           0.7054                0.6666            0.0388         0.6763         0.7266              0.6363              0.6948          0.0309          0.0485
+landmark_at_global_median 7451      2353          0.1899      clinical_only           0.8240                0.7164            0.1076         0.8061         0.8357              0.6673              0.7469          0.0869          0.1390
+landmark_at_global_median 7451      2353          0.1899           combined           0.8451                0.7474            0.0976         0.8285         0.8589              0.7191              0.7665          0.0846          0.1120
+landmark_at_global_median 7451      2353          0.1899 transcriptome_only           0.8182                0.6881            0.1301         0.8052         0.8336              0.6646              0.7186          0.1084          0.1482
+              landmark_1y 8567      1237          0.1133      clinical_only           0.8098                0.7187            0.0911         0.7923         0.8316              0.6782              0.7727          0.0529          0.1265
+              landmark_1y 8567      1237          0.1133           combined           0.8255                0.7412            0.0844         0.8033         0.8473              0.6932              0.7854          0.0590          0.1249
+              landmark_1y 8567      1237          0.1133 transcriptome_only           0.7933                0.6692            0.1241         0.7794         0.8129              0.6228              0.7227          0.0777          0.1666
+              landmark_2y 6558      3246          0.2646      clinical_only           0.8259                0.7059            0.1200         0.8169         0.8363              0.6824              0.7282          0.1077          0.1362
+              landmark_2y 6558      3246          0.2646           combined           0.8500                0.7473            0.1027         0.8328         0.8595              0.7111              0.7680          0.0880          0.1225
+              landmark_2y 6558      3246          0.2646 transcriptome_only           0.8267                0.6936            0.1331         0.8117         0.8345              0.6607              0.7177          0.1153          0.1529
+              landmark_3y 5320      4484          0.4004      clinical_only           0.8296                0.7002            0.1294         0.8207         0.8402              0.6760              0.7275          0.1123          0.1463
+              landmark_3y 5320      4484          0.4004           combined           0.8531                0.7446            0.1085         0.8413         0.8679              0.7140              0.7729          0.0882          0.1287
+              landmark_3y 5320      4484          0.4004 transcriptome_only           0.8291                0.6876            0.1415         0.8177         0.8410              0.6553              0.7178          0.1231          0.1647
+
+== R2_2_original_split_models.csv
+                                feature_set  pooled_auc  within_type_auc  n_types
+                         transcriptome_only      0.7892           0.6697       17
+                 transcriptome_only|svm_rbf      0.7931           0.6846       17
+           transcriptome_only|random_forest      0.7854           0.6437       17
+                            tumor_type_only      0.7473           0.5000       17
+                                   age_only      0.6244           0.6022       17
+                                  site_only      0.7608           0.6277       17
+                              clinical_only      0.7952           0.7039       17
+                         clinical_plus_year      0.8029           0.7215       17
+              transcriptome_plus_tumor_type      0.7892           0.6736       17
+      transcriptome_plus_tumor_type|svm_rbf      0.7933           0.6861       17
+transcriptome_plus_tumor_type|random_forest      0.7865           0.6575       17
+                                   combined      0.8147           0.7310       17
+
+== R2_3_exclusion_by_type.csv
+type  excluded  retained  pct_excluded
+READ       107        59       64.4578
+PCPG       114        65       63.6872
+COAD       271       186       59.2998
+THCA       295       212       58.1854
+PRAD       288       210       57.8313
+KIRP       163       127       56.2069
+ LGG       282       232       54.8638
+BRCA       589       507       53.7409
+ESCA        98        87       52.9730
+CESC       161       146       52.4430
+STAD       225       212       51.4874
+DLBC        24        24       50.0000
+UCEC       262       284       47.9853
+LIHC       177       199       47.0745
+LUAD       239       271       46.8627
+ UVM        37        43       46.2500
+TGCT        56        78       41.7910
+THYM        51        72       41.4634
+BLCA       159       252       38.6861
+LUSC       190       308       38.1526
+PAAD        70       115       37.8378
+HNSC       196       331       37.1917
+SARC        83       178       31.8008
+CHOL        10        26       27.7778
+ UCS        15        42       26.3158
+SKCM       119       336       26.1538
+KIRC       130       406       24.2537
+  OV       136       443       23.4888
+ ACC        20        72       21.7391
+LAML        39       147       20.9677
+KICH        12        53       18.4615
+ GBM        95       493       16.1565
+MESO         6        80        6.9767
+
+== R2_3_ipw_sensitivity.csv
+                  feature_set  auc_unweighted  auc_ipw  within_type_unweighted
+           transcriptome_only          0.7892   0.7402                  0.6619
+              tumor_type_only          0.7473   0.7114                  0.5000
+                     age_only          0.6244   0.6215                  0.5986
+                    site_only          0.7608   0.7265                  0.6257
+                clinical_only          0.7952   0.7573                  0.6997
+           clinical_plus_year          0.8029   0.7863                  0.7194
+transcriptome_plus_tumor_type          0.7892   0.7420                  0.6650
+                     combined          0.8147   0.7728                  0.7213
+
+== R2_3_retained_vs_excluded.csv
+                                                          item  excluded  retained      p
+                                                             n 4719.0000 6296.0000    NaN
+                                      median year of diagnosis 2011.0000 2007.0000 0.0000
+                                                    median age   60.0000   61.0000 0.0007
+                                       median follow up (days)  528.0000 1220.0000 0.0000
+                                 stage I percent (known stage)   34.6452   28.2766 0.0000
+                                stage II percent (known stage)   32.3963   25.6140 0.0000
+                               stage III percent (known stage)   24.8996   30.3818 0.0000
+                                stage IV percent (known stage)    8.0589   15.7276 0.0000
+                                                female percent   53.4011   51.2230 0.0247
+                  exclusion percent by tumor type, min and max    6.9767   64.4578 0.0000
+exclusion percent by site (51 sites with n >= 50), min and max    0.0000   88.4615 0.0000
+                                     overall exclusion percent   42.8416       NaN    NaN
+
+== R2_4_patient_flow.csv
+                                                                                              step     n
+                                               Clinical records in source file (sample level rows) 12591
+                                                                 Unique patients in clinical table 11081
+                                                       Patients with complete OS (status and time) 11015
+                                                    Expression samples (all columns of the matrix) 11069
+                                                                 Removed: solid tissue normal (11)   737
+                                                                          Removed: metastatic (06)   395
+                                                                     Removed: recurrent tumor (02)    46
+                                                              Removed: additional new primary (05)    11
+                                                               Removed: additional metastatic (07)     1
+                                                        Primary tumor samples (01, or 03 for LAML)  9879
+Removed: repeated primary tumor aliquots of the same patient (first aliquot in barcode order kept)     4
+                                           Unique patients with a primary tumor expression profile  9875
+                                                     Patients with both expression and complete OS  9804
+                                                  Labelled with the global rule (modelling cohort)  5307
+                                                                                of which high risk  1415
+                                               Excluded: censored at or before the 75th percentile  4497
+
+== R2_5_repeated_cv_summary.csv
+                                feature_set  pooled_auc_mean  within_type_auc_mean  pooling_gap_mean  brier_mean  cal_slope_mean  cal_intercept_mean  ece_mean  pooled_auc_lo  pooled_auc_hi  within_type_auc_lo  within_type_auc_hi  pooling_gap_lo  pooling_gap_hi  brier_lo  brier_hi  cal_slope_lo  cal_slope_hi  cal_intercept_lo  cal_intercept_hi  ece_lo  ece_hi
+                                   age_only           0.6393                0.6062            0.0331      0.2359          1.0215             -1.0128    0.2197         0.6126         0.6663              0.5705              0.6411          0.0046          0.0609    0.2308    0.2405        0.7569        1.3227           -1.0527           -0.9754  0.2118  0.2260
+                              clinical_only           0.8175                0.7013            0.1163      0.1781          0.9999             -1.0106    0.1618         0.8019         0.8281              0.6671              0.7324          0.0925          0.1394    0.1720    0.1841        0.9052        1.0931           -1.0671           -0.9580  0.1547  0.1699
+                         clinical_plus_year           0.8262                0.7161            0.1101      0.1736          1.0074             -1.0106    0.1580         0.8085         0.8401              0.6777              0.7519          0.0845          0.1336    0.1673    0.1811        0.8902        1.1085           -1.0724           -0.9444  0.1499  0.1658
+                                   combined           0.8367                0.7304            0.1063      0.1667          0.8413             -0.9448    0.1383         0.8225         0.8502              0.6932              0.7647          0.0818          0.1345    0.1596    0.1744        0.7628        0.9348           -1.0179           -0.8659  0.1265  0.1475
+                                  site_only           0.7808                0.6125            0.1682      0.1876          1.1606             -0.9362    0.1690         0.7650         0.7989              0.5726              0.6491          0.1408          0.1944    0.1827    0.1934        1.0430        1.2904           -0.9916           -0.8862  0.1603  0.1756
+                         transcriptome_only           0.8134                0.6732            0.1402      0.1779          0.8485             -0.9549    0.1504         0.7992         0.8321              0.6354              0.7124          0.1165          0.1712    0.1708    0.1851        0.7579        0.9821           -1.0224           -0.8950  0.1401  0.1621
+           transcriptome_only|random_forest           0.8048                0.6514            0.1534      0.1531          1.2996              0.2758    0.0435         0.7889         0.8208              0.6088              0.6858          0.1269          0.1839    0.1485    0.1570        1.1525        1.4780            0.1683            0.4174  0.0295  0.0593
+                 transcriptome_only|svm_rbf           0.8107                0.6753            0.1354      0.1497          1.0666             -0.0002    0.0312         0.7971         0.8286              0.6334              0.7150          0.1117          0.1639    0.1439    0.1545        0.9508        1.2118           -0.0995            0.0934  0.0212  0.0457
+              transcriptome_plus_tumor_type           0.8149                0.6732            0.1417      0.1771          0.8422             -0.9512    0.1488         0.8005         0.8331              0.6364              0.7122          0.1165          0.1731    0.1707    0.1840        0.7646        0.9602           -1.0164           -0.8923  0.1387  0.1596
+transcriptome_plus_tumor_type|random_forest           0.8072                0.6526            0.1546      0.1521          1.2682              0.2448    0.0417         0.7935         0.8196              0.6118              0.6939          0.1233          0.1877    0.1484    0.1561        1.1130        1.4384            0.1400            0.3659  0.0306  0.0591
+      transcriptome_plus_tumor_type|svm_rbf           0.8112                0.6759            0.1352      0.1496          1.0689             -0.0003    0.0306         0.7974         0.8288              0.6355              0.7150          0.1113          0.1640    0.1439    0.1543        0.9534        1.2144           -0.0965            0.0933  0.0185  0.0443
+                            tumor_type_only           0.7810                0.5000            0.2810      0.1931          1.0600             -1.0157    0.1786         0.7779         0.7832              0.5000              0.5000          0.2779          0.2832    0.1919    0.1938        1.0305        1.0873           -1.0337           -0.9996  0.1767  0.1810
+
+== R2_7_site_within_type.csv
+type   n  n_sites  majority_baseline  permuted_accuracy  site_accuracy  site_accuracy_after_clinical_adjustment
+BLCA 153        5             0.2876             0.2171         0.3854                                   0.3525
+BRCA 436        9             0.2271             0.1518         0.2729                                   0.2408
+COAD 140        5             0.4071             0.2900         0.5857                                   0.5857
+HNSC 263        6             0.4563             0.3361         0.5321                                   0.5244
+KIRC 380        7             0.2789             0.2253         0.4553                                   0.4105
+ LGG 166        6             0.3313             0.2517         0.4697                                   0.4576
+LIHC 149        4             0.6376             0.5436         0.6103                                   0.5768
+LUAD 178        7             0.2135             0.1607         0.4384                                   0.4494
+LUSC 221       10             0.1855             0.1230         0.2894                                   0.2762
+  OV 170        5             0.3176             0.2212         0.3647                                   0.3353
+PRAD 151        5             0.3046             0.2436         0.6426                                   0.6230
+STAD 130        3             0.4462             0.4138         0.8154                                   0.6923
+THCA 162        4             0.4198             0.3345         0.4748                                   0.4629
+UCEC 216        8             0.2037             0.1482         0.2500                                   0.2409
+
+== R2_7_variance_partition.csv
+ component  R2_type  R2_site_given_type  R2_clinical_given_type_site  R2_unexplained
+         1   0.8511              0.0214                       0.0010          0.1265
+         2   0.5025              0.1164                       0.0014          0.3797
+         3   0.7854              0.0384                       0.0017          0.1744
+         4   0.8462              0.0245                       0.0006          0.1287
+         5   0.4832              0.0793                       0.0016          0.4358
+         6   0.6678              0.0574                       0.0003          0.2744
+         7   0.7889              0.0314                       0.0009          0.1788
+         8   0.7923              0.0392                       0.0006          0.1679
+         9   0.6677              0.0481                       0.0002          0.2840
+        10   0.6624              0.0506                       0.0020          0.2850
+        11   0.6018              0.0683                       0.0014          0.3286
+        12   0.5220              0.0877                       0.0004          0.3900
+        13   0.7376              0.0300                       0.0014          0.2310
+        14   0.7273              0.0320                       0.0029          0.2378
+        15   0.6047              0.0476                       0.0029          0.3448
+        16   0.5732              0.0575                       0.0033          0.3659
+        17   0.6520              0.0411                       0.0020          0.3049
+        18   0.6033              0.0636                       0.0032          0.3299
+        19   0.5235              0.0571                       0.0019          0.4175
+        20   0.4817              0.0753                       0.0011          0.4419
+        21   0.5606              0.0720                       0.0041          0.3633
+        22   0.4755              0.0753                       0.0024          0.4468
+        23   0.6343              0.0419                       0.0005          0.3233
+        24   0.4893              0.0659                       0.0005          0.4442
+        25   0.4995              0.0694                       0.0005          0.4306
+        26   0.4355              0.0702                       0.0044          0.4898
+        27   0.3188              0.0774                       0.0073          0.5965
+        28   0.2481              0.1045                       0.0038          0.6435
+        29   0.2801              0.1071                       0.0020          0.6108
+        30   0.2962              0.0962                       0.0011          0.6065
+        31   0.2893              0.1014                       0.0018          0.6074
+        32   0.2839              0.0805                       0.0018          0.6338
+        33   0.1379              0.1053                       0.0015          0.7552
+        34   0.1701              0.1010                       0.0039          0.7250
+        35   0.1586              0.1008                       0.0031          0.7374
+        36   0.1061              0.1001                       0.0057          0.7881
+        37   0.0995              0.1048                       0.0050          0.7907
+        38   0.1702              0.1108                       0.0007          0.7184
+        39   0.1598              0.1015                       0.0005          0.7382
+        40   0.0777              0.1067                       0.0059          0.8097
+        41   0.0668              0.1002                       0.0195          0.8136
+        42   0.0727              0.1165                       0.0014          0.8094
+        43   0.1370              0.1118                       0.0057          0.7455
+        44   0.0981              0.1021                       0.0060          0.7938
+        45   0.0888              0.1011                       0.0013          0.8089
+        46   0.1136              0.1135                       0.0041          0.7688
+        47   0.0559              0.1051                       0.0019          0.8371
+        48   0.0551              0.1185                       0.0094          0.8170
+        49   0.0689              0.1224                       0.0043          0.8044
+        50   0.0892              0.1143                       0.0050          0.7916
+        51   0.0511              0.1274                       0.0064          0.8151
+        52   0.0908              0.1035                       0.0077          0.7979
+        53   0.0507              0.1277                       0.0005          0.8212
+        54   0.0485              0.1074                       0.0169          0.8272
+        55   0.0428              0.1022                       0.0088          0.8461
+        56   0.0535              0.1114                       0.0041          0.8309
+        57   0.0890              0.0964                       0.0277          0.7869
+        58   0.0380              0.1034                       0.0011          0.8575
+        59   0.0872              0.1045                       0.0052          0.8031
+        60   0.0428              0.1190                       0.0003          0.8379
+        61   0.0288              0.1112                       0.0117          0.8483
+        62   0.0319              0.1129                       0.0060          0.8492
+        63   0.0303              0.1036                       0.0026          0.8636
+        64   0.0609              0.1125                       0.0419          0.7846
+        65   0.0294              0.1150                       0.0013          0.8543
+        66   0.0218              0.1139                       0.0025          0.8618
+        67   0.0234              0.1181                       0.0021          0.8563
+        68   0.0350              0.1108                       0.0049          0.8492
+        69   0.0513              0.1204                       0.0038          0.8245
+        70   0.0403              0.1141                       0.0057          0.8399
+        71   0.0393              0.0941                       0.0244          0.8422
+        72   0.0354              0.1147                       0.0171          0.8328
+        73   0.0549              0.1016                       0.0041          0.8394
+        74   0.0634              0.1410                       0.0060          0.7896
+        75   0.0353              0.1085                       0.0096          0.8467
+        76   0.0290              0.1073                       0.0024          0.8614
+        77   0.0379              0.1084                       0.0029          0.8507
+        78   0.0433              0.1166                       0.0029          0.8372
+        79   0.0175              0.1060                       0.0477          0.8288
+        80   0.0177              0.1237                       0.0149          0.8437
+        81   0.0596              0.1018                       0.0051          0.8335
+        82   0.0148              0.1132                       0.0015          0.8705
+        83   0.0225              0.1158                       0.0030          0.8587
+        84   0.0281              0.1061                       0.0014          0.8645
+        85   0.0209              0.1254                       0.0138          0.8399
+        86   0.0559              0.1050                       0.0093          0.8297
+        87   0.0135              0.1061                       0.0087          0.8717
+        88   0.0213              0.0988                       0.0076          0.8723
+        89   0.0351              0.1210                       0.0107          0.8331
+        90   0.0134              0.1079                       0.0081          0.8705
+        91   0.0132              0.1090                       0.0130          0.8648
+        92   0.0250              0.0968                       0.0033          0.8749
+        93   0.0285              0.1233                       0.0220          0.8262
+        94   0.0271              0.1023                       0.0045          0.8661
+        95   0.0151              0.1211                       0.0005          0.8632
+        96   0.0291              0.1201                       0.0271          0.8237
+        97   0.0182              0.1102                       0.0044          0.8671
+        98   0.0300              0.1017                       0.0071          0.8612
+        99   0.0331              0.1077                       0.0012          0.8581
+       100   0.0349              0.1043                       0.0040          0.8568
+       101   0.0156              0.1019                       0.0019          0.8806
+       102   0.0160              0.1051                       0.0015          0.8774
+       103   0.0213              0.0992                       0.0025          0.8770
+       104   0.0111              0.1256                       0.0013          0.8619
+       105   0.0357              0.1088                       0.0018          0.8536
+       106   0.0208              0.1104                       0.0023          0.8665
+       107   0.0452              0.1068                       0.0008          0.8472
+       108   0.0214              0.1230                       0.0044          0.8512
+       109   0.0243              0.1063                       0.0008          0.8685
+       110   0.0148              0.1013                       0.0028          0.8810
+       111   0.0207              0.1153                       0.0023          0.8617
+       112   0.0190              0.1080                       0.0016          0.8713
+       113   0.0073              0.1189                       0.0021          0.8717
+
+== R2_8_delong_original_split.csv
+                                      comparison   auc1   auc2    diff       z      p
+             transcriptome_only vs clinical_only 0.7892 0.7952 -0.0060 -0.5081 0.6114
+                       combined vs clinical_only 0.8147 0.7952  0.0195  2.4007 0.0164
+                  combined vs transcriptome_only 0.8147 0.7892  0.0255  3.9058 0.0001
+           transcriptome_only vs tumor_type_only 0.7892 0.7473  0.0419  3.6990 0.0002
+transcriptome_plus_tumor_type vs tumor_type_only 0.7892 0.7473  0.0419  3.9472 0.0001
+
+== R2_8_paired_differences_cv.csv
+                                         comparison  d_pooled_mean  d_within_mean  d_pooled_lo  d_pooled_hi  d_within_lo  d_within_hi  frac_splits_positive_pooled  frac_splits_positive_within
+             clinical_plus_year minus clinical_only         0.0086         0.0148       0.0007       0.0150      -0.0058       0.0357                         0.99                         0.90
+                       combined minus clinical_only         0.0191         0.0291       0.0063       0.0367       0.0003       0.0593                         1.00                         0.97
+                  combined minus transcriptome_only         0.0233         0.0572       0.0108       0.0344       0.0292       0.0905                         1.00                         1.00
+             transcriptome_only minus clinical_only        -0.0042        -0.0281      -0.0255       0.0210      -0.0805       0.0216                         0.38                         0.16
+           transcriptome_only minus tumor_type_only         0.0324         0.1732       0.0172       0.0506       0.1354       0.2124                         1.00                         1.00
+transcriptome_plus_tumor_type minus tumor_type_only         0.0339         0.1732       0.0193       0.0523       0.1364       0.2122                         1.00                         1.00
+
+== R2_9_calibration_2y.csv
+                           model  decile  split  predicted_2y_risk  observed_2y_risk
+                        clinical       0    4.5             0.0799            0.0144
+                        clinical       1    4.5             0.1125            0.0340
+                        clinical       2    4.5             0.1332            0.0515
+                        clinical       3    4.5             0.1551            0.1043
+                        clinical       4    4.5             0.1803            0.1524
+                        clinical       5    4.5             0.2058            0.1662
+                        clinical       6    4.5             0.2363            0.2369
+                        clinical       7    4.5             0.2754            0.3208
+                        clinical       8    4.5             0.3293            0.4202
+                        clinical       9    4.5             0.4751            0.6078
+     clinical_stratified_by_type       0    4.5             0.0082            0.1828
+     clinical_stratified_by_type       1    4.5             0.0321            0.2371
+     clinical_stratified_by_type       2    4.5             0.0625            0.2654
+     clinical_stratified_by_type       3    4.5             0.1110            0.2491
+     clinical_stratified_by_type       4    4.5             0.1529            0.2099
+     clinical_stratified_by_type       5    4.5             0.2009            0.1835
+     clinical_stratified_by_type       6    4.5             0.2501            0.1545
+     clinical_stratified_by_type       7    4.5             0.3153            0.1717
+     clinical_stratified_by_type       8    4.5             0.4017            0.2294
+     clinical_stratified_by_type       9    4.5             0.6052            0.2412
+                        combined       0    4.5             0.0673            0.0108
+                        combined       1    4.5             0.1027            0.0187
+                        combined       2    4.5             0.1251            0.0500
+                        combined       3    4.5             0.1486            0.0675
+                        combined       4    4.5             0.1755            0.1172
+                        combined       5    4.5             0.2064            0.1905
+                        combined       6    4.5             0.2397            0.2589
+                        combined       7    4.5             0.2813            0.3269
+                        combined       8    4.5             0.3442            0.4260
+                        combined       9    4.5             0.5023            0.6423
+     combined_stratified_by_type       0    4.5             0.0082            0.1821
+     combined_stratified_by_type       1    4.5             0.0319            0.2352
+     combined_stratified_by_type       2    4.5             0.0622            0.2675
+     combined_stratified_by_type       3    4.5             0.1109            0.2445
+     combined_stratified_by_type       4    4.5             0.1531            0.2196
+     combined_stratified_by_type       5    4.5             0.2008            0.1750
+     combined_stratified_by_type       6    4.5             0.2506            0.1573
+     combined_stratified_by_type       7    4.5             0.3167            0.1760
+     combined_stratified_by_type       8    4.5             0.4021            0.2257
+     combined_stratified_by_type       9    4.5             0.6066            0.2404
+                   transcriptome       0    4.5             0.0958            0.0176
+                   transcriptome       1    4.5             0.1245            0.0342
+                   transcriptome       2    4.5             0.1437            0.0640
+                   transcriptome       3    4.5             0.1647            0.0923
+                   transcriptome       4    4.5             0.1866            0.1152
+                   transcriptome       5    4.5             0.2133            0.2100
+                   transcriptome       6    4.5             0.2436            0.2747
+                   transcriptome       7    4.5             0.2775            0.3271
+                   transcriptome       8    4.5             0.3201            0.4156
+                   transcriptome       9    4.5             0.4170            0.5820
+transcriptome_stratified_by_type       0    4.5             0.0085            0.1826
+transcriptome_stratified_by_type       1    4.5             0.0354            0.2387
+transcriptome_stratified_by_type       2    4.5             0.0650            0.2641
+transcriptome_stratified_by_type       3    4.5             0.1209            0.2931
+transcriptome_stratified_by_type       4    4.5             0.1647            0.1808
+transcriptome_stratified_by_type       5    4.5             0.1991            0.1635
+transcriptome_stratified_by_type       6    4.5             0.2557            0.1587
+transcriptome_stratified_by_type       7    4.5             0.3132            0.1431
+transcriptome_stratified_by_type       8    4.5             0.3996            0.2628
+transcriptome_stratified_by_type       9    4.5             0.5676            0.2338
+
+== R2_9_calibration_2y_summary.csv
+                           model  slope_observed_on_predicted  intercept  mean_abs_error
+                        clinical                       1.6065    -0.1398          0.0613
+     clinical_stratified_by_type                      -0.0045     0.2134          0.1570
+                        combined                       1.5699    -0.1334          0.0657
+     combined_stratified_by_type                      -0.0057     0.2136          0.1585
+                   transcriptome                       1.8758    -0.1969          0.0737
+transcriptome_stratified_by_type                      -0.0134     0.2150          0.1538
+
+== R2_9_schoenfeld_tests.csv
+Unnamed: 0  test_statistic      p  -log2(p)
+       PC1          0.0834 0.7727    0.3720
+      PC10          1.3348 0.2480    2.0118
+       PC2          0.1197 0.7294    0.4553
+       PC3          0.3577 0.5498    0.8630
+       PC4          1.5604 0.2116    2.2406
+       PC5          0.0013 0.9711    0.0422
+       PC6          0.2134 0.6442    0.6345
+       PC7          0.4162 0.5188    0.9466
+       PC8          0.1336 0.7148    0.4844
+       PC9          1.2115 0.2710    1.8835
+       age          0.0048 0.9446    0.0822
+sex_FEMALE          0.0298 0.8629    0.2127
+  sex_MALE          0.0298 0.8629    0.2127
+   stage_I          0.0006 0.9803    0.0287
+  stage_II          0.3406 0.5595    0.8378
+ stage_III          0.0020 0.9643    0.0525
+  stage_IV          0.9288 0.3352    1.5771
+  stage_NA          0.0004 0.9831    0.0246
+
+== control_leave_one_type_out.csv
+held_out_type   n  n_high    auc
+          ACC  61      11 0.8236
+         BLCA 248     117 0.6092
+         BRCA 507      28 0.6435
+         CESC 146      31 0.6954
+         COAD 184      60 0.6415
+         ESCA  86      50 0.4456
+          GBM 121      94 0.5709
+         HNSC 327     137 0.6330
+         KIRC 404      62 0.6836
+         KIRP 127      19 0.8674
+         LAML 127      78 0.5709
+          LGG 232      42 0.7248
+         LIHC 195      74 0.7436
+         LUAD 269      81 0.6160
+         LUSC 305     107 0.5839
+         MESO  80      42 0.8208
+           OV 224      42 0.5880
+         PAAD 108      67 0.6407
+         PCPG  65       3 0.6505
+         READ  56       9 0.6052
+         SARC 176      39 0.6401
+         STAD 197     115 0.4940
+         THCA 210       4 0.7549
+         THYM  69       3 0.3990
+         UCEC 275      33 0.6618
+          UCS  42      19 0.4371
+          UVM  43      10 0.8455
+
+== control_within_type_permutation.csv
+ rep        feature_set  pooled_auc  within_type_auc
+   0 transcriptome_only      0.7804           0.5117
+   0    tumor_type_only      0.8101           0.5000
+   1 transcriptome_only      0.7514           0.5079
+   1    tumor_type_only      0.7767           0.5000
+   2 transcriptome_only      0.7226           0.4993
+   2    tumor_type_only      0.7556           0.5000
+   3 transcriptome_only      0.7458           0.4980
+   3    tumor_type_only      0.7759           0.5000
+   4 transcriptome_only      0.7391           0.5324
+   4    tumor_type_only      0.7545           0.5000
